@@ -16,17 +16,17 @@ async function httpGetPlanets() {
 
 // Load launches, sort by flight number, and return as JSON.
 async function httpGetLaunches() {
-  // try {
-  //   const response = await fetch(`${API_URL}/launches`);
-  //   if (!response.ok) {
-  //     throw new Error(`Failed to fetch launches: ${response.statusText}`);
-  //   }
-  //   const fetchedLaunches = await response.json();
-  //   return fetchedLaunches.sort((a, b) => a.flightNumber - b.flightNumber);
-  // } catch (err) {
-  //   console.error(err);
-  //   return []; // Return empty array in case of error
-  // }
+  try {
+    const response = await fetch(`${API_URL}/launches`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch launches: ${response.statusText}`);
+    }
+    const fetchedLaunches = await response.json();
+    return fetchedLaunches.sort((a, b) => a.flightNumber - b.flightNumber);
+  } catch (err) {
+    console.error(err);
+    return []; // Return empty array in case of error
+  }
 }
 
 // Submit given launch data to launch system.
