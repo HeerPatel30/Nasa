@@ -31,38 +31,38 @@ async function httpGetLaunches() {
 
 // Submit given launch data to launch system.
 async function httpSubmitLaunch(launch) {
-  // try {
-  //   const response = await fetch(`${API_URL}/launches`, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(launch),
-  //   });
-  //   if (!response.ok) {
-  //     throw new Error(`Failed to submit launch: ${response.statusText}`);
-  //   }
-  //   return await response.json(); // assuming the server responds with the launch data
-  // } catch (err) {
-  //   console.error(err);
-  //   return { ok: false }; // Return failure response
-  // }
+  try {
+    const response = await fetch(`${API_URL}/launches`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(launch),
+    });
+    if (!response.ok) {
+      throw new Error(`Failed to submit launch: ${response.statusText}`);
+    }
+    return await response.json(); // assuming the server responds with the launch data
+  } catch (err) {
+    console.error(err);
+    return { ok: false }; // Return failure response
+  }
 }
 
 // Delete launch with given ID.
 async function httpAbortLaunch(id) {
-  // try {
-  //   const response = await fetch(`${API_URL}/launches/${id}`, {
-  //     method: "DELETE",
-  //   });
-  //   if (!response.ok) {
-  //     throw new Error(`Failed to delete launch: ${response.statusText}`);
-  //   }
-  //   return { ok: true };
-  // } catch (err) {
-  //   console.error(err);
-  //   return { ok: false };
-  // }
+  try {
+    const response = await fetch(`${API_URL}/launches/${id}`, {
+      method: "DELETE",
+    });
+    if (!response.ok) {
+      throw new Error(`Failed to delete launch: ${response.statusText}`);
+    }
+    return { ok: true };
+  } catch (err) {
+    console.error(err);
+    return { ok: false };
+  }
 }
 
 export { httpGetPlanets, httpGetLaunches, httpSubmitLaunch, httpAbortLaunch };

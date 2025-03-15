@@ -36,7 +36,7 @@ function loadplanets() {
       })
       .on("end", () => {
         const name = result.map((planet) => planet["kepler_name"]);
-        console.log(`${result.length} are the survival planets: ${name}`);
+        // console.log(`${result.length} are the survival planets: ${name}`);
         resolve();
       });
   });
