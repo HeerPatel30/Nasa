@@ -2,9 +2,11 @@
   "name": "nasa",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon src/index.js",
-    "server": "node src/index.js"
+    "server": "node src/index.js",
+    "test": "jest"
   },
   "author": "Heer Patel",
   "license": "ISC",
@@ -13,8 +15,10 @@
     "cors": "^2.8.5",
     "csv-parse": "^5.6.0",
     "express": "^4.21.2",
+    "jest": "^29.7.0",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.9",
-    "start": "^5.1.0"
+    "start": "^5.1.0",
+    "supertest": "^7.1.0"
   }
 }
